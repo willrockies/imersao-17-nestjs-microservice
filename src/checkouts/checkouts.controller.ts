@@ -22,6 +22,16 @@ export class CheckoutsController {
     return this.checkoutsService.findOne(+id);
   }
 
+  @Post(':id/pay')
+  pay(@Param('id') id: string) {
+    return this.checkoutsService.pay(+id);
+  }
+
+  @Post(':id/fail')
+  fail(@Param('id') id: string) {
+    return this.checkoutsService.pay(+id);
+  }
+
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateCheckoutDto: UpdateCheckoutDto) {
     return this.checkoutsService.update(+id, updateCheckoutDto);
@@ -32,3 +42,7 @@ export class CheckoutsController {
     return this.checkoutsService.remove(+id);
   }
 }
+
+//API REST - PUT PATCH
+
+//REST - Representational State Transfer - qualquer coisa pode ser recurso
